@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ES6 Features Example</title>
+</head>
+<body>
+  <h1>JavaScript ES6 Features Demo</h1>
+  <pre id="output"></pre>
+
+  <script type="module">
+    const output = document.getElementById("output");
+
+    function log(text) {
+      output.textContent += text + "\n";
+    }
+
+    // 1. let and const
+    let name = "Alice";
+    const age = 25;
+    log("let/const: " + name + ", " + age);
+
+    // 2. Arrow Functions
+    const greet = (n) => `Hello, ${n}`;
+    log("Arrow function: " + greet(name));
+
+    // 3. Template Literals
+    const message = `My name is ${name} and I am ${age} years old.`;
+    log("Template literal: " + message);
+
+    // 4. Default Parameters
+    function multiply(a, b = 2) {
+      return a * b;
+    }
+    log("Default parameter: multiply(5) = " + multiply(5));
+
+    // 5. Destructuring
+    const [x, y] = [10, 20];
+    const { title, year } = { title: "Book", year: 2025 };
+    log(`Destructuring: x=${x}, y=${y}, title=${title}, year=${year}`);
+
+    // 6. Rest and Spread
+    function sum(...nums) {
+      return nums.reduce((a, b) => a + b, 0);
+    }
+    const arr1 = [1, 2];
+    const arr2 = [...arr1, 3, 4];
+    log("Rest: sum(1,2,3) = " + sum(1, 2, 3));
+    log("Spread: " + arr2.join(", "));
+
+    // 7. Enhanced Object Literals
+    const user = {
+      name,
+      age,
+      greet() {
+        return `Hi, I'm ${this.name}`;
+      }
+    };
+    log("Enhanced object: " + user.greet());
+
+    // 8. Classes
+    class Person {
+      constructor(name) {
+        this.name = name;
+      }
+      speak() {
+        return `Hi, I'm ${this.name}`;
+      }
+    }
+    const person = new Person("John");
+    log("Class example: " + person.speak());
+
+    // 9. Promises
+    const loadData = () =>
+      new Promise((resolve) => {
+        setTimeout(() => resolve("Promise resolved after 1 sec"), 1000);
+      });
+
+    loadData().then((data) => log("Promise: " + data));
+
+    // 10. Module Imports — Demonstrated inside <script type="module">
+    // You could separate logic to external .js files and import with `import`
+  </script>
+</body>
+</html>

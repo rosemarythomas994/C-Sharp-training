@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .error-msg {
+      color: red;
+      font-size: 0.875rem;
+      margin-top: 5px;
+    }
+
+    .navbar-brand img {
+      max-height: 48px;
+    }
+
+    .btn-login {
+      background-color: #003399;
+      color: white;
+    }
+
+    .btn-login:hover {
+      background-color: #002080;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Nav -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="revv.png" alt="Logo" height="50">
+      </a>
+
+      <!-- Right Links -->
+      <div class="d-flex align-items-center gap-4">
+        <a href="https://revv.vin/about-us" class="text-dark fw-medium text-decoration-none">About us</a>
+       
+      </div>
+    </div>
+  </nav>
+
+  <div class="login-container">
+    <h2 class="text-center text-primary mb-4 border-bottom pb-2">Log in</h2>
+    <form id="loginForm" novalidate>
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <div id="emailError" class="error-msg"></div>
+        <input type="text" class="form-control" id="email" name="email">
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <div id="passwordError" class="error-msg"></div>
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
+      <!-- Remember Me -->
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+        <label class="form-check-label" for="remember">Remember Me</label>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-login w-100">Log in</button>
+    </form>
+
+    <!-- Extra Links -->
+    <div class="mt-3 text-center">
+      <a href="#" class="text-decoration-none text-primary">Forgot Password?</a>
+    </div>
+    <div class="text-center mt-2">
+      Don’t have an account?
+      <a href="#" class="text-success fw-semibold text-decoration-none">Register</a>
+    </div>
+  </div>
+ <footer style="background-color: #000066;" class="text-white py-4">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start">
+    
+    <!-- Left: Logo + Store Buttons + Copyright -->
+    <div class="text-center text-md-start mb-3 mb-md-0">
+      <!-- <img src="revv.png" alt="REVV Logo" height="40" class="mb-3"> -->
+ <!-- Logo -->
+      <a href="index.html">
+        <img src="revv.png" alt="REVV Logo" height="40" class="mb-3">
+      </a>
+      <div class="d-flex justify-content-center justify-content-md-start gap-2 mb-2">
+        <a href="https://play.google.com/store/apps/details?id=com.revv.vin" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" height="40">
+        </a>
+        <a href="https://apps.apple.com/us/app/revv-ai/id6740824555" target="_blank">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" height="40">
+        </a>
+      </div>
+
+      <p class="small mb-0">©2025 REVV. All rights reserved.</p>
+    </div>
+
+    <!-- Right: Footer Links -->
+    <div class="text-center text-md-end">
+      <a href="#" class="d-block text-white text-decoration-none mb-1">About us</a>
+      <a href="#" class="d-block text-white text-decoration-none mb-1">Privacy policy</a>
+      <a href="#" class="d-block text-white text-decoration-none">Terms of use</a>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("loginForm");
+      const emailInput = document.getElementById("email");
+      const passwordInput = document.getElementById("password");
+      const emailErrorDiv = document.getElementById("emailError");
+      const passwordErrorDiv = document.getElementById("passwordError");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Clear previous errors
+        emailErrorDiv.innerText = "";
+        passwordErrorDiv.innerText = "";
+
+        let valid = true;
+
+        // Email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailInput.value.trim())) {
+          emailErrorDiv.innerText = "Please enter a valid email address.";
+          valid = false;
+        }
+
+        // Password validation
+        const passwordError = validatePassword(passwordInput.value);
+        if (passwordError) {
+          passwordErrorDiv.innerText = passwordError;
+          valid = false;
+        }
+
+        if (valid) {
+          alert("Successfully logged in!");
+          form.reset();
+        }
+      });
+
+      function validatePassword(password) {
+        const minLength = 8;
+        const letterRegex = /([A-Za-z].*){4}/;
+        const digitRegex = /[0-9]/;
+        const specialCharRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
+
+        let errors = [];
+        if (password.length < minLength) errors.push("at least 8 characters");
+        if (!letterRegex.test(password)) errors.push("at least 4 letters");
+        if (!digitRegex.test(password)) errors.push("at least one digit");
+        if (!specialCharRegex.test(password)) errors.push("at least one special character");
+
+        return errors.length ? "Password must contain " + errors.join(", ") + "." : "";
+      }
+    });
+  </script>
+
+</body>
+
+</html>
