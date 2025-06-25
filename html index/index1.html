@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REVV Car Auction</title>
+  <!-- Tailwind CSS: For utility-first CSS styling. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome: For icon fonts. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ <!-- Bootstrap: For layout or components (though rarely used in this file). -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <!-- Top Nav -->
+  <nav class="bg-white px-6 py-3 shadow flex justify-between items-center">
+    <!-- Logo with link and more space -->
+    <a href="index.html" class="flex items-center ml-12">
+      <img src="revv.png" alt="Logo" class="h-10 md:h-16">
+    </a>
+
+    <!-- Links -->
+    <div class="flex items-center space-x-6">
+      <a href="https://revv.vin/about-us" class="text-gray-700 font-medium hover:text-blue-600">About us</a>
+      <a href="login.html"
+        class="bg-blue-900 text-white px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-blue-800 transition">
+        Login
+      </a>
+    </div>
+  </nav>
+
+  <!-- Slider Section -->
+  <section class="relative h-[500px] w-full overflow-hidden">
+    <!-- Slides -->
+    <div id="slides" class="relative h-full transition-all duration-700 ease-in-out">
+
+      <!-- Slide 1 -->
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('car.jpg');" data-slide="0">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div class="text-center text-white max-w-2xl px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">2025 Vehicle Auction Schedule</h1>
+            <p class="mb-6 text-lg">
+              Don’t miss your chance to bid on thousands of high-quality vehicles. View upcoming auction dates and plan
+              your bids in advance.
+            </p>
+            <a href="#"
+              class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded inline-flex items-center">
+              View Auction Schedule <span class="ml-2 text-xl">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('car2.png');" data-slide="0">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div class="text-center text-white max-w-2xl px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Bid on Premium Used Cars</h1>
+            <p class="mb-6 text-lg">
+              Explore our wide inventory of premium pre-owned vehicles—from sedans to SUVs—available to the highest
+              bidder.
+            </p>
+            <a href="#"
+              class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded inline-flex items-center">
+              Start Bidding <span class="ml-2 text-xl">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('car4.jpg');" data-slide="0">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div class="text-center text-white max-w-2xl px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Fast, Transparent, Reliable</h1>
+            <p class="mb-6 text-lg">
+              Enjoy a seamless auction experience with trusted vehicle inspections, real-time bidding, and smooth
+              delivery options.
+            </p>
+            <a href="#"
+              class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded inline-flex items-center">
+              Learn More <span class="ml-2 text-xl">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button onclick="prevSlide()"
+      class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 text-black p-2 rounded-full text-2xl">❮</button>
+    <button onclick="nextSlide()"
+      class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 text-black p-2 rounded-full text-2xl">❯</button>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-10">
+        Optimize auction decisioning and liquidity with the only AI-powered tool of its kind in the marketplace
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div
+          class="card bg-green-100 rounded-2xl p-6 text-left shadow-md transition cursor-pointer hover:bg-green-900 hover:text-white">
+          <div class="text-4xl mb-4">
+
+            <i class="fa-solid fa-network-wired"></i>
+
+          </div>
+          <h3 class="font-semibold text-lg mb-2">AI-Driven</h3>
+          <p>
+            Embracing cutting-edge technology, we streamline and simplify your processes.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="card bg-green-100 rounded-2xl p-6 text-left shadow-md transition cursor-pointer hover:bg-green-900 hover:text-white">
+
+          <div class="text-4xl mb-4">
+
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Data-Driven</h3>
+          <p>
+            Leveraging data, we ensure you have all the facts for transparent and informed decision-making.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="card bg-green-100 rounded-2xl p-6 text-left shadow-md transition cursor-pointer hover:bg-green-900 hover:text-white">
+
+          <div class="text-4xl mb-4">
+
+            <i class="fa-solid fa-person"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Customer Focused</h3>
+          <p>
+            With powerful data insights, we help guide your remarketing needs for optimal performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-10">
+        Maximize net returns at auction using REVV’s comprehensive solution
+      </h2>
+      <h3 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-10"></h3>
+      Our fully compliant offering is a modern, easy-to-use AI interface providing:
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+
+        <!-- Card 1 -->
+        <div class="purple-card bg-purple-100 rounded-2xl p-6 shadow hover:shadow-lg transition cursor-pointer">
+          <div class="icon text-3xl mb-4 text-purple-700">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <h3 class="title font-semibold text-lg mb-2 text-gray-800">API Options</h3>
+          <p class="description text-gray-700 mb-4">
+            Empower your application with our robust API options, designed to connect you directly with leading
+            auctions.
+          </p>
+          <img src="api.png" alt="API Options" class="w-full rounded-lg object-cover">
+        </div>
+
+        <!-- Card 2 -->
+        <div class="purple-card bg-purple-100 rounded-2xl p-6 shadow hover:shadow-lg transition cursor-pointer">
+          <div class="icon text-3xl mb-4 text-purple-700">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="title font-semibold text-lg mb-2 text-gray-800">Tech-Driven Work Flow</h3>
+          <p class="description text-gray-700 mb-4">
+            Our advanced technology seamlessly integrates into your operations, ensuring a streamlined and efficient
+            workflow.
+          </p>
+          <img src="tech.png" alt="Tech-Driven Workflow" class="w-full rounded-lg object-cover">
+        </div>
+
+        <!-- Card 3 -->
+        <div class="purple-card bg-purple-100 rounded-2xl p-6 shadow hover:shadow-lg transition cursor-pointer">
+          <div class="icon text-3xl mb-4 text-purple-700">
+            <i class="fa-solid fa-clipboard-check"></i>
+          </div>
+          <h3 class="title font-semibold text-lg mb-2 text-gray-800">Early-Stage Condition Reporting</h3>
+          <p class="description text-gray-700 mb-4">
+            Our cutting-edge technology delivers condition information faster than the industry standard, optimizing
+            your sales strategy.
+          </p>
+          <img src="early.png" alt="Condition Reporting" class="w-full rounded-lg object-cover">
+        </div>
+
+      </div>
+    </div>
+  </section>
+<footer class="bg-[#000066] text-white py-8">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-8">
+
+    <!-- Left Section: Logo + App Buttons + Copyright -->
+    <div class="flex flex-col items-start space-y-4">
+      <!-- Logo -->
+      <a href="index.html">
+        <img src="revv.png" alt="REVV Logo" class="h-10">
+      </a>
+
+      <!-- App Badges -->
+      <div class="flex gap-3">
+        <a href="https://play.google.com/store/apps/details?id=com.revv.vin" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-10">
+        </a>
+        <a href="https://apps.apple.com/us/app/revv-ai/id6740824555" target="_blank">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="h-10">
+        </a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="text-sm">©2025 REVV. All rights reserved.</p>
+    </div>
+
+    <!-- Right Section: Footer Links -->
+    <div class="text-left md:text-left space-y-2">
+      <a href="#" class="block hover:underline">About us</a>
+      <a href="#" class="block hover:underline">Privacy policy</a>
+      <a href="#" class="block hover:underline">Terms of use</a>
+    </div>
+  </div>
+</footer>
+
+
+
+
+  <script>
+    // Green cards - already working
+    const greenCards = document.querySelectorAll('.card');
+
+    greenCards.forEach(card => {
+      card.addEventListener('click', () => {
+        greenCards.forEach(c => {
+          c.classList.remove('bg-green-900', 'text-white');
+          c.classList.add('bg-green-100', 'text-gray-700');
+        });
+
+        card.classList.remove('bg-green-100', 'text-gray-700');
+        card.classList.add('bg-green-900', 'text-white');
+      });
+    });
+
+    // Purple cards - hover functionality with text color change
+    const purpleCards = document.querySelectorAll('.purple-card');
+
+    purpleCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.classList.remove('bg-purple-100');
+        card.classList.add('bg-purple-900');
+
+        // Change icon color
+        card.querySelector('.icon').classList.remove('text-purple-700');
+        card.querySelector('.icon').classList.add('text-white');
+
+        // Change title color
+        card.querySelector('.title').classList.remove('text-gray-800');
+        card.querySelector('.title').classList.add('text-white');
+
+        // Change description color
+        card.querySelector('.description').classList.remove('text-gray-700');
+        card.querySelector('.description').classList.add('text-white');
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('bg-purple-900');
+        card.classList.add('bg-purple-100');
+
+        // Revert icon color
+        card.querySelector('.icon').classList.remove('text-white');
+        card.querySelector('.icon').classList.add('text-purple-700');
+
+        // Revert title color
+        card.querySelector('.title').classList.remove('text-white');
+        card.querySelector('.title').classList.add('text-gray-800');
+
+        // Revert description color
+        card.querySelector('.description').classList.remove('text-white');
+        card.querySelector('.description').classList.add('text-gray-700');
+      });
+    });
+  </script>
+
+
+
+  <script>
+    const slides = document.querySelectorAll('[data-slide]');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('hidden', i !== index);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 5000); 
+  </script>
+
+
+
+
+</body>
+
+</html>

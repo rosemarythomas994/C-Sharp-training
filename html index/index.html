@@ -5,321 +5,357 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>REVV Car Auction</title>
-  <!-- Tailwind CSS: For utility-first CSS styling. -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome: For icon fonts. -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- <!-- Bootstrap: For layout or components (though rarely used in this file). -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f3f4f6;
+      color: #1f2937;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: white;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .nav-links a {
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+
+    .login-btn {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 0.375rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .login-btn:hover {
+      background-color: #1e40af;
+    }
+
+    /* Bootstrap Carousel Custom Styling */
+    .carousel-slide {
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      text-align: center;
+      max-width: 700px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1.5rem;
+      border-radius: 1rem;
+    }
+
+    .carousel-caption h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .carousel-caption p {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+    }
+
+    .yellow-btn {
+      background-color: #facc15;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .yellow-btn:hover {
+      background-color: #eab308;
+    }
+
+    /* Section */
+    .features-section {
+      padding: 4rem 1rem;
+      background: white;
+      text-align: center;
+    }
+
+    .features-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    @media (min-width: 768px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .green-card {
+      background-color: #d1fae5;
+    }
+
+    .green-card:hover {
+      background-color: #065f46;
+      color: white;
+    }
+
+    .purple-card {
+      background-color: #f3e8ff;
+    }
+
+    .purple-card:hover {
+      background-color: #6b21a8;
+      color: white;
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .purple {
+      color: #7e22ce;
+    }
+
+    footer {
+      background-color: #000066;
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-left img {
+      height: 40px;
+    }
+
+    .app-badges img {
+      height: 40px;
+      margin-right: 1rem;
+    }
+
+    .footer-right a {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
-  <!-- Top Nav -->
-  <nav class="bg-white px-6 py-3 shadow flex justify-between items-center">
-    <!-- Logo with link and more space -->
-    <a href="index.html" class="flex items-center ml-12">
-      <img src="revv.png" alt="Logo" class="h-10 md:h-16">
-    </a>
+<body>
 
-    <!-- Links -->
-    <div class="flex items-center space-x-6">
-      <a href="https://revv.vin/about-us" class="text-gray-700 font-medium hover:text-blue-600">About us</a>
-      <a href="login.html"
-        class="bg-blue-900 text-white px-4 py-1.5 rounded-lg text-sm font-semibold hover:bg-blue-800 transition">
-        Login
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand" href="index.html">
+        <img src="revv.png" alt="Logo" height="50">
       </a>
+      <div class="d-flex align-items-center gap-4">
+        <a href="https://revv.vin/about-us" class="text-dark fw-medium text-decoration-none">About us</a>
+        <a href="login.html" class="login-btn">Login</a>
+      </div>
     </div>
   </nav>
-
-  <!-- Slider Section -->
-  <section class="relative h-[500px] w-full overflow-hidden">
-    <!-- Slides -->
-    <div id="slides" class="relative h-full transition-all duration-700 ease-in-out">
-
-      <!-- Slide 1 -->
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('car.jpg');" data-slide="0">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div class="text-center text-white max-w-2xl px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">2025 Vehicle Auction Schedule</h1>
-            <p class="mb-6 text-lg">
-              Don’t miss your chance to bid on thousands of high-quality vehicles. View upcoming auction dates and plan
-              your bids in advance.
-            </p>
-            <a href="#"
-              class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded inline-flex items-center">
-              View Auction Schedule <span class="ml-2 text-xl">→</span>
-            </a>
+  <!-- Bootstrap Carousel -->
+  <div id="revvCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="carousel-slide" style="background-image: url('car.jpg');">
+          <div class="carousel-caption">
+            <h1>2025 Vehicle Auction Schedule</h1>
+            <p>Don’t miss your chance to bid on thousands of high-quality vehicles.</p>
+            <a href="#" class="yellow-btn">View Auction Schedule →</a>
           </div>
         </div>
       </div>
-
-      <!-- Slide 2 -->
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('car2.png');" data-slide="0">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div class="text-center text-white max-w-2xl px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Bid on Premium Used Cars</h1>
-            <p class="mb-6 text-lg">
-              Explore our wide inventory of premium pre-owned vehicles—from sedans to SUVs—available to the highest
-              bidder.
-            </p>
-            <a href="#"
-              class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded inline-flex items-center">
-              Start Bidding <span class="ml-2 text-xl">→</span>
-            </a>
+      <div class="carousel-item">
+        <div class="carousel-slide" style="background-image: url('car2.png');">
+          <div class="carousel-caption">
+            <h1>Bid on Premium Used Cars</h1>
+            <p>Explore our wide inventory of premium pre-owned vehicles.</p>
+            <a href="#" class="yellow-btn">Start Bidding →</a>
           </div>
         </div>
       </div>
-
-      <!-- Slide 3 -->
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('car4.jpg');" data-slide="0">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div class="text-center text-white max-w-2xl px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Fast, Transparent, Reliable</h1>
-            <p class="mb-6 text-lg">
-              Enjoy a seamless auction experience with trusted vehicle inspections, real-time bidding, and smooth
-              delivery options.
-            </p>
-            <a href="#"
-              class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded inline-flex items-center">
-              Learn More <span class="ml-2 text-xl">→</span>
-            </a>
+      <div class="carousel-item">
+        <div class="carousel-slide" style="background-image: url('car4.jpg');">
+          <div class="carousel-caption">
+            <h1>Fast, Transparent, Reliable</h1>
+            <p>Enjoy a seamless auction experience with trusted inspections.</p>
+            <a href="#" class="yellow-btn">Learn More →</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Navigation Arrows -->
-    <button onclick="prevSlide()"
-      class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 text-black p-2 rounded-full text-2xl">❮</button>
-    <button onclick="nextSlide()"
-      class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 text-black p-2 rounded-full text-2xl">❯</button>
-  </section>
+    <button class="carousel-control-prev" type="button" data-bs-target="#revvCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#revvCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
 
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-10">
-        Optimize auction decisioning and liquidity with the only AI-powered tool of its kind in the marketplace
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Card 1 -->
-        <div
-          class="card bg-green-100 rounded-2xl p-6 text-left shadow-md transition cursor-pointer hover:bg-green-900 hover:text-white">
-          <div class="text-4xl mb-4">
-
-            <i class="fa-solid fa-network-wired"></i>
-
-          </div>
-          <h3 class="font-semibold text-lg mb-2">AI-Driven</h3>
-          <p>
-            Embracing cutting-edge technology, we streamline and simplify your processes.
-          </p>
+  <!-- Feature Cards -->
+<section class="features-section bg-white py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Optimize auction decisioning and liquidity with our AI-powered tool</h2>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="card green-card p-4 text-start h-100">
+          <div class="icon mb-3"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>AI-Driven</h3>
+          <p>We streamline and simplify your processes with cutting-edge AI.</p>
         </div>
-
-        <!-- Card 2 -->
-        <div
-          class="card bg-green-100 rounded-2xl p-6 text-left shadow-md transition cursor-pointer hover:bg-green-900 hover:text-white">
-
-          <div class="text-4xl mb-4">
-
-            <i class="fa-solid fa-file-lines"></i>
-          </div>
-          <h3 class="font-semibold text-lg mb-2">Data-Driven</h3>
-          <p>
-            Leveraging data, we ensure you have all the facts for transparent and informed decision-making.
-          </p>
+      </div>
+      <div class="col-lg-4">
+        <div class="card green-card p-4 text-start h-100">
+          <div class="icon mb-3"><i class="fa-solid fa-file-lines"></i></div>
+          <h3>Data-Driven</h3>
+          <p>We ensure transparent and informed decision-making using data.</p>
         </div>
-
-        <!-- Card 3 -->
-        <div
-          class="card bg-green-100 rounded-2xl p-6 text-left shadow-md transition cursor-pointer hover:bg-green-900 hover:text-white">
-
-          <div class="text-4xl mb-4">
-
-            <i class="fa-solid fa-person"></i>
-          </div>
-          <h3 class="font-semibold text-lg mb-2">Customer Focused</h3>
-          <p>
-            With powerful data insights, we help guide your remarketing needs for optimal performance.
-          </p>
+      </div>
+      <div class="col-lg-4">
+        <div class="card green-card p-4 text-start h-100">
+          <div class="icon mb-3"><i class="fa-solid fa-person"></i></div>
+          <h3>Customer Focused</h3>
+          <p>Guiding your remarketing needs with powerful insights.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-10">
-        Maximize net returns at auction using REVV’s comprehensive solution
-      </h2>
-      <h3 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-10"></h3>
-      Our fully compliant offering is a modern, easy-to-use AI interface providing:
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-
-        <!-- Card 1 -->
-        <div class="purple-card bg-purple-100 rounded-2xl p-6 shadow hover:shadow-lg transition cursor-pointer">
-          <div class="icon text-3xl mb-4 text-purple-700">
-            <i class="fa-solid fa-network-wired"></i>
-          </div>
-          <h3 class="title font-semibold text-lg mb-2 text-gray-800">API Options</h3>
-          <p class="description text-gray-700 mb-4">
-            Empower your application with our robust API options, designed to connect you directly with leading
-            auctions.
-          </p>
-          <img src="api.png" alt="API Options" class="w-full rounded-lg object-cover">
+<section class="features-section bg-white py-5">
+  <div class="container">
+    <h2 class="text-center">Maximize net returns at auction using REVV’s comprehensive solution</h2>
+    <div class="row g-4 mt-4">
+      
+      <!-- Card 1 -->
+      <div class="col-lg-4">
+        <div class="card purple-card p-4 h-100 text-start">
+          <div class="icon text-purple mb-3"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>API Options</h3>
+          <p>Connect your apps directly with leading auctions.</p>
+          <img src="api.png" alt="API Options" class="img-fluid rounded">
         </div>
-
-        <!-- Card 2 -->
-        <div class="purple-card bg-purple-100 rounded-2xl p-6 shadow hover:shadow-lg transition cursor-pointer">
-          <div class="icon text-3xl mb-4 text-purple-700">
-            <i class="fa-solid fa-laptop-code"></i>
-          </div>
-          <h3 class="title font-semibold text-lg mb-2 text-gray-800">Tech-Driven Work Flow</h3>
-          <p class="description text-gray-700 mb-4">
-            Our advanced technology seamlessly integrates into your operations, ensuring a streamlined and efficient
-            workflow.
-          </p>
-          <img src="tech.png" alt="Tech-Driven Workflow" class="w-full rounded-lg object-cover">
-        </div>
-
-        <!-- Card 3 -->
-        <div class="purple-card bg-purple-100 rounded-2xl p-6 shadow hover:shadow-lg transition cursor-pointer">
-          <div class="icon text-3xl mb-4 text-purple-700">
-            <i class="fa-solid fa-clipboard-check"></i>
-          </div>
-          <h3 class="title font-semibold text-lg mb-2 text-gray-800">Early-Stage Condition Reporting</h3>
-          <p class="description text-gray-700 mb-4">
-            Our cutting-edge technology delivers condition information faster than the industry standard, optimizing
-            your sales strategy.
-          </p>
-          <img src="early.png" alt="Condition Reporting" class="w-full rounded-lg object-cover">
-        </div>
-
       </div>
-    </div>
-  </section>
-<footer class="bg-[#000066] text-white py-8">
-  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-8">
 
-    <!-- Left Section: Logo + App Buttons + Copyright -->
-    <div class="flex flex-col items-start space-y-4">
-      <!-- Logo -->
+      <!-- Card 2 -->
+      <div class="col-lg-4">
+        <div class="card purple-card p-4 h-100 text-start">
+          <div class="icon text-purple mb-3"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3>Tech-Driven Work Flow</h3>
+          <p>Integrate technology into your workflow for efficiency.</p>
+          <img src="tech.png" alt="Tech-Driven Workflow" class="img-fluid rounded">
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-lg-4">
+        <div class="card purple-card p-4 h-100 text-start">
+          <div class="icon text-purple mb-3"><i class="fa-solid fa-clipboard-check"></i></div>
+          <h3>Early-Stage Condition Reporting</h3>
+          <p>Faster vehicle condition reports to optimize strategy.</p>
+          <img src="early.png" alt="Condition Reporting" class="img-fluid rounded">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+ <footer style="background-color: #000066;" class="text-white py-4">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start">
+    
+    <!-- Left: Logo + Store Buttons + Copyright -->
+    <div class="text-center text-md-start mb-3 mb-md-0">
+      <!-- <img src="revv.png" alt="REVV Logo" height="40" class="mb-3"> -->
+
       <a href="index.html">
-        <img src="revv.png" alt="REVV Logo" class="h-10">
+        <img src="revv.png" alt="REVV Logo" height="40" class="mb-3">
       </a>
-
-      <!-- App Badges -->
-      <div class="flex gap-3">
+      <div class="d-flex justify-content-center justify-content-md-start gap-2 mb-2">
         <a href="https://play.google.com/store/apps/details?id=com.revv.vin" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-10">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" height="40">
         </a>
         <a href="https://apps.apple.com/us/app/revv-ai/id6740824555" target="_blank">
-          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="h-10">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" height="40">
         </a>
       </div>
 
-      <!-- Copyright -->
-      <p class="text-sm">©2025 REVV. All rights reserved.</p>
+      <p class="small mb-0">©2025 REVV. All rights reserved.</p>
     </div>
 
-    <!-- Right Section: Footer Links -->
-    <div class="text-left md:text-left space-y-2">
-      <a href="#" class="block hover:underline">About us</a>
-      <a href="#" class="block hover:underline">Privacy policy</a>
-      <a href="#" class="block hover:underline">Terms of use</a>
+  
+    <div class="text-center text-md-end">
+      <a href="#" class="d-block text-white text-decoration-none mb-1">About us</a>
+      <a href="#" class="d-block text-white text-decoration-none mb-1">Privacy policy</a>
+      <a href="#" class="d-block text-white text-decoration-none">Terms of use</a>
     </div>
   </div>
 </footer>
 
-
-
-
-  <script>
-    // Green cards - already working
-    const greenCards = document.querySelectorAll('.card');
-
-    greenCards.forEach(card => {
-      card.addEventListener('click', () => {
-        greenCards.forEach(c => {
-          c.classList.remove('bg-green-900', 'text-white');
-          c.classList.add('bg-green-100', 'text-gray-700');
-        });
-
-        card.classList.remove('bg-green-100', 'text-gray-700');
-        card.classList.add('bg-green-900', 'text-white');
-      });
-    });
-
-    // Purple cards - hover functionality with text color change
-    const purpleCards = document.querySelectorAll('.purple-card');
-
-    purpleCards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        card.classList.remove('bg-purple-100');
-        card.classList.add('bg-purple-900');
-
-        // Change icon color
-        card.querySelector('.icon').classList.remove('text-purple-700');
-        card.querySelector('.icon').classList.add('text-white');
-
-        // Change title color
-        card.querySelector('.title').classList.remove('text-gray-800');
-        card.querySelector('.title').classList.add('text-white');
-
-        // Change description color
-        card.querySelector('.description').classList.remove('text-gray-700');
-        card.querySelector('.description').classList.add('text-white');
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.classList.remove('bg-purple-900');
-        card.classList.add('bg-purple-100');
-
-        // Revert icon color
-        card.querySelector('.icon').classList.remove('text-white');
-        card.querySelector('.icon').classList.add('text-purple-700');
-
-        // Revert title color
-        card.querySelector('.title').classList.remove('text-white');
-        card.querySelector('.title').classList.add('text-gray-800');
-
-        // Revert description color
-        card.querySelector('.description').classList.remove('text-white');
-        card.querySelector('.description').classList.add('text-gray-700');
-      });
-    });
-  </script>
-
-
-
-  <script>
-    const slides = document.querySelectorAll('[data-slide]');
-    let currentSlide = 0;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('hidden', i !== index);
-      });
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
-    }
-
-    setInterval(nextSlide, 5000); 
-  </script>
-
-
-
-
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

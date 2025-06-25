@@ -1,8 +1,8 @@
-console.log("Hello, world!");
+console.log("Hello, world!\n");
 
 // Function Declaration
 function greet(name) {
-  return "Hello, " + name + "!";
+  return "Hello, " + name + "!\n";
 }
 console.log(greet("Rose"));
 
@@ -10,7 +10,7 @@ console.log(greet("Rose"));
 function addNumbers(a, b) {
   return a + b;
 }
-console.log(addNumbers(2, 5));
+console.log(addNumbers(2, 5),"\n");
 
 // Function Expression
 const addExpr = function(a, b) {
@@ -35,10 +35,10 @@ console.log(addArrow(10, 15));
 
 // ➤ Global Scope
 // Variables declared outside any function are in the global scope.
-let globalVar = "I am global";
+let globalVar = "global scope veriable";
 
 function testGlobal() {
-  console.log(globalVar);
+  console.log("\n",globalVar);
 }
 testGlobal();
 
@@ -46,8 +46,8 @@ testGlobal();
 // ➤ Function (Local) Scope
 // Variables declared inside a function are not accessible outside.
 function testLocal() {
-  let localVar = "I am local";
-  console.log(localVar);
+  let localVar = "local scope, inside function";
+  console.log("\n",localVar);
 }
 testLocal();
 
@@ -57,20 +57,22 @@ testLocal();
 {
   let x = 10;
   const y = 20;
+   console.log("\nBloack scope");
  console.log(x, y); 
 }
 
 
 // Scope Chain
 // When a variable is not found in the current scope, JavaScript looks up the scope chain to find it.
-let globalVar1 = "global";
+let globalVar1 = "global veriable";
 
 function outer() {
-  let outerVar = "outer";
+  let outerVar = "outer veriable";
 
   function inner() {
+    console.log("\nScope Chain")
     console.log(globalVar1);
-    console.log(outerVar);  
+    console.log(outerVar,"\n");  
   }
 
   inner();
@@ -80,16 +82,18 @@ outer();
 // ES6 FEATURES — QUICK REFERENCE
 // let and const
 // let: block-scoped variable
+console.log("\n ES6 FEATURES — QUICK REFERENCE \n")
 let age = 25;
 const name = "Rose";
-console.log(age);
-console.log(name);
+console.log("let example:",age);
+console.log("const eample:",name);
 
 
 //  Array map()
 // Transforms each element and returns a new array.
 const nums = [1, 2, 3];
 const squared = nums.map(n => n * n); 
+console.log("\n ...........array example.........")
 console.log(nums);
 console.log(squared);
 
@@ -97,12 +101,13 @@ console.log(squared);
 // Returns the first element that satisfies a condition.
 const ages = [12, 17, 21, 30];
 const adult = ages.find(age => age >= 18); 
+console.log("\n......Array find().......")
 console.log(ages);
 console.log(adult);
 
 // Array findIndex()
 // Returns the index of the first element that satisfies a condition.
-console.log(".....Array findIndex().......");
+console.log("\n.....Array findIndex().......");
 const rollnumbers = [12, 17, 21, 30];
 const index = rollnumbers.findIndex(age => age >= 18); 
 console.log(rollnumbers);
@@ -110,7 +115,7 @@ console.log(index);
 
 // Array every()
 // Checks if all elements satisfy a condition → returns true or false.
-console.log(".....Array every().......");
+console.log("\n.......Array every().......");
 const marks = [60, 70, 80];
 const allPassed = marks.every(mark => mark >= 50);
 console.log(marks);
@@ -157,6 +162,7 @@ console.log(doubled);
 
 // filter() – Filter Array Elements
 // Returns a new array with elements that pass the condition.
+console.log(".....filter() – Filter Array Elements........");
 const nums3 = [1, 2, 3, 4, 5];
 const evens = nums.filter(n => n % 2 === 0);
 console.log(evens); 
